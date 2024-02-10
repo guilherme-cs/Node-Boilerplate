@@ -15,6 +15,7 @@ const router = express.Router();
 
 //Loading Routes
 const webRoutes = require('./routes/web');
+const apiRoutes = require('./routes/api');
 const sequelize = require('./config/database');
 const errorController = require('./app/controllers/ErrorController');
 
@@ -55,6 +56,7 @@ app.set('view engine', 'hbs');
 app.set('views', 'views');
 
 app.use(webRoutes);
+app.use(apiRoutes);
 app.use(errorController.pageNotFound);
 
 sequelize
